@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react-food-delivery",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aadesh-1999/namaste-react-food-delivery.git"
+  },
+  "author": "Aadesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aadesh-1999/namaste-react-food-delivery/issues"
+  },
+  "homepage": "https://github.com/Aadesh-1999/namaste-react-food-delivery#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  }
+}

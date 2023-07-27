@@ -1,0 +1,66 @@
+.appLogo{
+    height: 150px;
+    width: 200px;
+}
+.navContainer>ul{
+    display: flex;
+    align-items: center;
+    margin: 50px;
+}
+
+.navContainer>ul>li{
+    border: 2px rounded solid black;
+    padding: 20px;
+    list-style-type: none;
+}
+
+.header{
+    display:flex;
+    border: 2px solid black;
+    justify-content: space-between;
+}
+
+.search{
+    padding: 2%;
+    margin: 2%;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.restraurentCard{
+    border: 1px solid black;
+    height: 460px;
+    width: 260px;
+    margin: 1%;
+    padding: 5px;
+    text-align: left;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.restraurentCard:hover{
+    border: 2px solid red;
+}
+
+.cardLogoContainer{
+    width: 250px;
+    height: 250px;
+    padding: auto;
+}
+
+.cardLogo{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit:cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardHeader{
+    margin: 1%;
+}
