@@ -1,2 +1,4 @@
 Reconseliation : React uses this algorithm
 React fibre
+
+Shimmer UI -> Fake UI until we get real data from API

@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { cardImgCdn } from "../utils/constants";
 
 const RestraurantCards = (props) => {
+
     const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
         props?.restaurant?.info;
     return (
