@@ -1,37 +1,26 @@
-import { useEffect, useState } from "react";
-import { swiggyResMenuURL } from "../utils/constants";
 import ShimmerCards from "./ShimmerCards";
 import { useParams } from "react-router";
+import useGetMenuList from "../utils/useGetMenuList";
 
 const RestraurantMenu = () => {
 
-    const [resName,setResName]=useState("");
-    const [restMenu, setRestMenu]=useState(null);
-
     const params=useParams();
 
-    useEffect(()=>{
-        fetchMenu();
-    },[]);
-
-    const fetchMenu = async () => {
-        console.log(swiggyResMenuURL+params?.resId);
-        const res = await fetch(swiggyResMenuURL+params.resId);
-        const resJson = await res.json();
-        setRestMenu(resJson.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card);
-        setResName(resJson.data?.cards[0]?.card.card.info.name);
-    }
+    const restMenu = useGetMenuList(params.resId);
 
     if(restMenu===null) return(<ShimmerCards/>);
 
+    const {itemCards}=restMenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const {name}=restMenu?.data?.cards[0]?.card.card.info;
+    
     return(
         <div className="rest-menu-container" style={{"margin":"50px"}}>
             <div className="rest-menu-heading">
-                <h1>{resName}</h1>
+                <h1>{name}</h1>
             </div>
             <div className="rest-menu">
                 {
-                    restMenu?.itemCards?.map(
+                    itemCards?.map(
                         (menu)=>{
                             return (
                                 <li key={menu?.card?.info?.id}>

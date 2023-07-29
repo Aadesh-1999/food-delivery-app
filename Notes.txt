@@ -2,3 +2,19 @@ Reconseliation : React uses this algorithm
 React fibre
 
 Shimmer UI -> Fake UI until we get real data from API
+
+In class bases :
+
+Constructor -> render -> React actually updates the DOM -> componentDidMount (API call) -> Render with updated data -> componentDIdUpdate -> componentWillUnmount
+
+React batches togather the render phase of all child of given parent component
+That's why componentDidMount of childs get executed all at once at end once all childs get loaded/rendered.
+This is useful for making rendering fast and not wait for API response.
+
+ComponentDidMount in Class based components = useEffect in Functional components -> X
+Above is not valid -> Don't compare class component lifecycle methods to functional component
+
+useEffect gets called after every render & class have lifecycle..
+
+In class based clean up the interVal, events & mess in componentWillUnmount
+In function based clean up the mess in useEffect end by returning a function return=()=>{}

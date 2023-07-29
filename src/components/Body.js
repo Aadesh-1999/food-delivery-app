@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ShimmerCards from "./ShimmerCards";
 import { swiggyResApiURL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
@@ -121,6 +122,13 @@ const Body = () => {
         setRestaurantsList(resJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurantsList(resJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
+
+    const onlineStatus=useOnlineStatus();
+
+    if(!onlineStatus)
+        return (
+            <h1>You are Offline..</h1>
+        );
 
     //conditional rendering
     return restaurantsList?.length===0 ? <ShimmerCards/> :
