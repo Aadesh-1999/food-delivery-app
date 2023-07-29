@@ -1,11 +1,10 @@
-
 import { useState } from "react";
 import AppLogo from "../../assets/AppLogo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
     const [isLogin,setIsLogin]=useState(false);
-    const btnName="Login";
 
     return (
       <>
@@ -15,9 +14,15 @@ const Header = () => {
           </div>
           <div className="navContainer">
             <ul>
-              <li>Home</li>
-              <li>About</li>
-              <li>Contact</li>
+              <li>
+                <Link to="/">Home</Link> 
+              </li>
+              <li>
+                <Link to="/about">About</Link> 
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link> 
+              </li>
               <li><button onClick={()=>{setIsLogin(!isLogin)}}>{isLogin ? "Logout" : "Login"}</button></li>
             </ul>
           </div>
