@@ -1,12 +1,17 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
-import About from "./src/components/About";
+// import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestraurantMenu from "./src/components/RestraurantMenu";
 import Error from "./src/components/Error";
+// import Grocery from "./src/components/Grocery";
+
+//Lazy Loading //use Lazy and suspense to make app optimised and reduce loading time by dividing single bundle into multiple buldles
+const Grocery = lazy(()=>import("./src/components/Grocery")) ;
+const About = lazy(()=>import("./src/components/About"));
 
 //App structure
 // *Header
@@ -50,7 +55,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"/about",
-        element:<About/>
+        element:<Suspense fallback={<h1>Loading..</h1>}><About/></Suspense>
       },
       {
         path:"/contact",
@@ -59,6 +64,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/restraurantMenu/:resId",
         element:<RestraurantMenu/>
+      },
+      {
+        path:"/grocery",
+        element:<Suspense  fallback={<h1>Loading..</h1>}><Grocery/></Suspense>
       }
     ],
     errorElement:<Error/>

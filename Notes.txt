@@ -18,3 +18,5 @@ useEffect gets called after every render & class have lifecycle..
 
 In class based clean up the interVal, events & mess in componentWillUnmount
 In function based clean up the mess in useEffect end by returning a function return=()=>{}
+
+//Lazy Loading //use Lazy and suspense to make app optimised and reduce loading time by dividing single bundle (index.js) into multiple buldles
