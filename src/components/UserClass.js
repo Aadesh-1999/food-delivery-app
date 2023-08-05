@@ -49,7 +49,7 @@ class UserClass extends React.Component {
                     {this.state.userInfo.url}
                 </li>
                 <h3>{this.state.count}</h3>
-                <button onClick={()=>{
+                <button className="border-white border-x-pink-50 p-3 m-5 border-solid bg-pink-950 text-white " onClick={()=>{
                     this.setState({
                         count:this.state.count+1
                     });

@@ -20,3 +20,13 @@ In class based clean up the interVal, events & mess in componentWillUnmount
 In function based clean up the mess in useEffect end by returning a function return=()=>{}
 
 //Lazy Loading //use Lazy and suspense to make app optimised and reduce loading time by dividing single bundle (index.js) into multiple buldles
+
+
+Higher order function - function which take a function and returns a function
+
+Higher order component - component which take a component and returns a component - It takes a existing component tweaks it a little and returns back
+
+Lifting the state up to handle all the childs -> Use controlled components ->  Accordians example
+
+
+//React context -> To avoid props drilling

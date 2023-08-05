@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -8,6 +8,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestraurantMenu from "./src/components/RestraurantMenu";
 import Error from "./src/components/Error";
 // import Grocery from "./src/components/Grocery";
+import UserContext from "./src/utils/UserContext";
 
 //Lazy Loading //use Lazy and suspense to make app optimised and reduce loading time by dividing single bundle into multiple buldles
 const Grocery = lazy(()=>import("./src/components/Grocery")) ;
@@ -37,10 +38,28 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 //   }
 
 const AppLayout = () => {
+
+  //Authintication code to get user data
+  const [userName, setUserName] = useState();
+
+  //To get authincated user password we will make API call using useEffect first
+  useEffect(() => {
+    //will get the user data here
+    const data={
+      name:"Aadesh"
+    }
+    setUserName(data.name);
+  }, [])
+  
+
   return(
   <div className="app">
-    <Header />
-    <Outlet/>
+    <UserContext.Provider value={{login_user:userName, setUserName}}>
+      {/* <UserContext.Provider value={{login_user:"Elon Musk"}}> */}
+        <Header />
+      {/* </UserContext.Provider> */}
+      <Outlet/>
+    </UserContext.Provider>
   </div>)
 };
 
