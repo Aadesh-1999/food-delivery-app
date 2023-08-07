@@ -30,3 +30,24 @@ Lifting the state up to handle all the childs -> Use controlled components ->  A
 
 
 //React context -> To avoid props drilling
+
+
+
+Redux store -> Big js object which have lot of global states data in form of slices inside it kept in central place
+
+we can't directly modify slices
+
+To write data in slice :
+Dispatch an Action -> Action will call a function (Function called as reducer) -> Function(reducer) will update/modifies the slice
+
+To read data from slice :
+Selector -> subscribes to slice of redux store and -> updates the react component
+
+//Reduc steps :
+
+1. install @reduxjs/toolkit & react-redux
+2. Build own store
+3. Connect store to app
+4. Create slices -> cart slice
+5. Dispatch Action
+6. Selectornpm i  

@@ -9,6 +9,9 @@ import RestraurantMenu from "./src/components/RestraurantMenu";
 import Error from "./src/components/Error";
 // import Grocery from "./src/components/Grocery";
 import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore";
+import Cart from "./src/components/Cart";
 
 //Lazy Loading //use Lazy and suspense to make app optimised and reduce loading time by dividing single bundle into multiple buldles
 const Grocery = lazy(()=>import("./src/components/Grocery")) ;
@@ -54,12 +57,14 @@ const AppLayout = () => {
 
   return(
   <div className="app">
-    <UserContext.Provider value={{login_user:userName, setUserName}}>
-      {/* <UserContext.Provider value={{login_user:"Elon Musk"}}> */}
-        <Header />
-      {/* </UserContext.Provider> */}
-      <Outlet/>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{login_user:userName, setUserName}}>
+        {/* <UserContext.Provider value={{login_user:"Elon Musk"}}> */}
+          <Header />
+        {/* </UserContext.Provider> */}
+        <Outlet/>
+      </UserContext.Provider>
+    </Provider>
   </div>)
 };
 
@@ -79,6 +84,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/contact",
         element:<Contact/>
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
       },
       {
         path:"/restraurantMenu/:resId",

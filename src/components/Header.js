@@ -2,12 +2,16 @@ import { useContext, useState } from "react";
 import AppLogo from "../../assets/AppLogo.png";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
     const [isLogin,setIsLogin]=useState(false);
     const userData = useContext(UserContext);
 
+    //Subscribing to store using selector
+    const cartItems = useSelector((store)=>store.cart.items);
+    // console.log("cartItems : ",cartItems);
     return (
       <>
         <div className="header flex justify-between">
@@ -27,6 +31,11 @@ const Header = () => {
               </li>
               <li className="m-5">
                 <Link to="/grocery">Grocery</Link>
+              </li>
+              <li className="m-5 border border-black px-5">
+                <Link to="/cart" className="font-extrabold p-2">
+                  Cart({cartItems.length})
+                </Link>
               </li>
               <li className="m-5">
                 <button onClick={()=>{setIsLogin(!isLogin)}}>{isLogin ? "Logout" : "Login"}</button>

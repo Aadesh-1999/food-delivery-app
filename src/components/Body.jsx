@@ -131,7 +131,7 @@ const Body = () => {
       resJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
-    console.log(resJson?.data);
+    // console.log(resJson?.data);
     setFilteredRestaurantsList(
       resJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
